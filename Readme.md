@@ -12,10 +12,13 @@
             through which interactio happend from outside world to the kubernetes master
             kubectl apply -f [ filename ]
                 apply means perform change , -f to point specific file
+                 one can perform change in the .yml file (example change image) and execute above command, this will update existing pod by matching the name and Kind when found.
             kubectl get all
                 see all object status
-            kubectl get [ object ] (pods|service)
+            kubectl get [ object ] (pods|service|deployment)
                 see status of specific object
+            kubectl describer [object type](pods|services) [object name](client-pod)
+            kubectl delete -f [ filename ] - to delete an object
 ## Flow of this project setup
     browser -> kubeProxy -> conainer created with client-node-port.yml -> container created with client-pod.yml
 
@@ -35,11 +38,15 @@
 install minikube:
 
 https://loft.sh/blog/kubernetes-on-windows-6-life-saving-tools-and-tips/
+
 powershell in admin mode:
+
 install chocolatey
+
 choco install minikube
 
 start minikube:
+
 C:\Users\admin>minikube start --driver=docker
 W1230 19:39:42.829454    1892 main.go:291] Unable to resolve the current Docker CLI context "default": context "default": context not found: open C:\Users\admin\.docker\contexts\meta\37a8eec1ce19687d132fe29051dca629d164e2c4958ba141d5f4133a33f0688f\meta.json: The system cannot find the path specified.
 * minikube v1.32.0 on Microsoft Windows 10 Pro 10.0.19045.3803 Build 19045.3803
