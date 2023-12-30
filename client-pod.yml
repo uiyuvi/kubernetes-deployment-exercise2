@@ -1,0 +1,13 @@
+apiVersion: v1 # specify version of k8s api which allows certains objects to be declared in this file
+kind: Pod # specify what of object is used in this file Pod | Service | etc.,
+metadata:
+  name: client-pod #name of this container
+  labels:
+    component: web 
+    # custom labels are created, through this other k8s object refers this object, ex - yuvaraj: goodboy
+spec:
+  containers:
+    - name: client #name of the container
+      image: stephengrider/multi-client #name of the image to be pulled from docker-hub
+      ports:
+        - containerPort: 3000 # though this port this container output could be accessed
