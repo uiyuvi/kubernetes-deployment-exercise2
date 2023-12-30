@@ -32,6 +32,12 @@
 
 
 ### see output
+install minikube:
+
+https://loft.sh/blog/kubernetes-on-windows-6-life-saving-tools-and-tips/
+powershell in admin mode:
+install chocolatey
+choco install minikube
 
 start minikube:
 C:\Users\admin>minikube start --driver=docker
