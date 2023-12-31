@@ -19,6 +19,19 @@
                 see status of specific object
             kubectl describer [object type](pods|services) [object name](client-pod)
             kubectl delete -f [ filename ] - to delete an object
+            kubectl set(change sepcific property) image(specify the property name) [ type of object ](pod|service|deployment)/[object name] [name of the container]=[new value to the property] (image in this case)
+
+            example: kubectl set image deployment/client-deployment client=stephengrider/multi-client:v5
+
+            To seee list of docker images inside k8s:
+                - eval $(minikube docker-env)
+                - minikube -p minikube docker-env --shell powershell | Invoke-Expression -- in windows powershell
+## what happens when kubectl command executed
+    kubectl command -> Master(kuber-master) -> VM
+    inside VM
+        - docker server -> docker client -> image cache
+
+            
             
 ## Deployment object
     - we can update only image name of the running Pod. ideally pod is suitable for dev not for PROD
